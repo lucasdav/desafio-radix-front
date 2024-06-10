@@ -11,6 +11,7 @@ import registerUser from "../../services/registerUser";
 import { UserRegistrationData } from "../../services/registerUser/type";
 import CustomAlert from "../../components/CustomAlert";
 import LoadingComponent from "../../components/LoadingComponent";
+import { useNavigate } from "react-router-dom";
 
 export default function Etapa4PJ() {
   const { formData, setFormData } = useFormData();
@@ -20,6 +21,18 @@ export default function Etapa4PJ() {
   }>({});
 
   const [showAlert, setShowAlert] = useState(false);
+
+  const navigate = useNavigate();
+
+  const verifyAccountType = () => { 
+    if (!formData.accountType) {
+      navigate('/registration');
+    } 
+    return;
+  }
+
+  verifyAccountType();
+  
 
   const mutation = useMutation(registerUser, {
     onSuccess: (data) => {

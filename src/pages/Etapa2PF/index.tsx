@@ -6,15 +6,27 @@ import { ButtonProps } from "../../enum/ButtonProps";
 import { FormInputProps } from "../../interfaces/FormInputProps";
 import { InputIds } from "../../enum/InputIds";
 import { useFormData } from "../../hooks/useFormData";
+import { useNavigate } from "react-router-dom";
 
 export default function Etapa2PF() {
-  const { setFormData } = useFormData();
+  const { formData, setFormData } = useFormData();
   const [localInputValues, setLocalInputValues] = useState<{
     [key: string]: string;
   }>({});
   const [hasAlertMessage, setHasAlertMessage] = useState<{
     [key: string]: string;
   }>({});
+
+  const navigate = useNavigate();
+
+  const verifyAccountType = () => { 
+    if (!formData.accountType) {
+      navigate('/registration');
+    } 
+    return;
+  }
+
+  verifyAccountType();
 
   const titleLabel = "Pessoa Física";
 

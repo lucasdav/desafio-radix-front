@@ -4,18 +4,29 @@ import DynamicInput from "../../components/DynamicInput";
 import Stepper from "../../components/Stepper";
 import { ButtonProps } from "../../enum/ButtonProps";
 import { FormInputProps } from "../../interfaces/FormInputProps";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { InputIds } from "../../enum/InputIds";
 import { useFormData } from "../../hooks/useFormData";
 
 export default function Etapa3() {
-  const { setFormData } = useFormData();
+  const { formData, setFormData } = useFormData();
   const [localInputValues, setLocalInputValues] = useState<{
     [key: string]: string;
   }>({});
   const [hasAlertMessage, setHasAlertMessage] = useState<{
     [key: string]: string;
   }>({});
+
+  const navigate = useNavigate();
+
+  const verifyAccountType = () => { 
+    if (!formData.accountType) {
+      navigate('/registration');
+    } 
+    return;
+  }
+
+  verifyAccountType();
 
   const location = useLocation();
 
