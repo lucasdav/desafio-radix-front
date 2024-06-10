@@ -1,6 +1,7 @@
 # Desafio MB Web
 
-## Aplicação Frontend desenvolvido com ReactJS + TypeScript + Vite + Tailwind. API desenvolvida em NodeJs utilizando express
+## Aplicação Frontend desenvolvida com ReactJS + TypeScript + Vite + Tailwind + SASS
+## API desenvolvida em NodeJs utilizando Express
 
 - Preparando o ambiente de desenvolvimento
 
@@ -27,7 +28,6 @@
 
   - Conforme requisito: deve-se acessar a aplicação via [GET] /registration. Responsável por renderizar uma página html simples que irá carregar os componentes do formulário no browser:
   http://localhost:3002/registration
-
 
 - Para um dos principais requisitos a performance, foi implementado as rotas dividas entre 4 etapas, utilizando lazy
 
