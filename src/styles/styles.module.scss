@@ -1,0 +1,9 @@
+
+@import "./variaveis";
+
+.buttonstyled {
+  background-color: $color-primary;
+  &:hover {
+    background-color: $hover-primary;
+  }
+}
