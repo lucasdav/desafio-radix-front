@@ -1,7 +1,7 @@
 # Desafio MB Web
 
 ## Aplicação Frontend desenvolvida com ReactJS + TypeScript + Vite + Tailwind + SASS
-API desenvolvida em NodeJs utilizando Express
+## API desenvolvida em NodeJs utilizando Express
 
 - Preparando o ambiente de desenvolvimento
 
