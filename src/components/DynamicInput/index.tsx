@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { validators } from "../../validators";
-import { inputMaskFormat } from "../../util/inputMaskFormat";
 import InputAlert from "../InputAlert";
 
 interface Props {
@@ -47,9 +46,7 @@ export default function DynamicInput({
   };
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const maskedValue = inputMaskFormat(idInput, event.currentTarget.value);
-    event.currentTarget.value = maskedValue;
-    updateAlertMessage(maskedValue);
+    updateAlertMessage(event.currentTarget.value);
   };
 
   return (

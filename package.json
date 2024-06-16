@@ -6,22 +6,27 @@
   "scripts": {
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "server": "node ./server",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.20",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@mui/x-charts": "^7.7.0",
     "@tanstack/react-query": "^5.40.1",
     "@types/node": "^16.11.21",
+    "@types/papaparse": "^5.3.14",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "styled-components": "^6.1.11"
   },
   "browserslist": {
     "production": [

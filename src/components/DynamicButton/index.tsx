@@ -2,6 +2,7 @@ import styles from "./dynamic-button.module.scss";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
+  required?: boolean;
   to?: string;
   label: string;
   buttonWidth?: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function DynamicButton({
+  required,
   to,
   label,
   buttonWidth,
@@ -34,14 +36,14 @@ export default function DynamicButton({
   return (
     <button
       style={{ width: buttonWidth ? buttonWidth : "100%" }}
-      onClick={!disableButton && label !== "Voltar" ? undefined : handleClick}
+      onClick={!disableButton && required ? undefined : handleClick}
       className={`${
         label === "Voltar" ? styles.voltarbutton : styles.contiuarbutton
       }
-        ${!disableButton && label !== "Voltar"&& styles.disabled}
-        inline-block px-4 py-2 text-white font-semibold text-sm rounded-lg shadow-md 
+        ${!disableButton && required && styles.disabled}
+        inline-block px-4 py-2 text-white font-semibold text-sm rounded shadow-md 
         focus:outline-none focus:ring-2 focus:ring-opacity-75`}
-      disabled={!disableButton && label !== "Voltar"}
+      disabled={!disableButton && required}
     >
       {label}
     </button>
