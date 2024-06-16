@@ -347,7 +347,7 @@ export default function Home() {
                 <option value={4}>1 mês</option>
               </NativeSelect>
             </FormControl>
-            <h3 className="mt-4">Valor médio: {averageValue}</h3>
+            <h3 className="mt-4">Valor médio: {averageValue.toFixed(2)}</h3>
           </div>
           <div style={{ overflowX: "auto", width: "100%" }}>
             <BarChart

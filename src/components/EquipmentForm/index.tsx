@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Import useEffect
+import React, { useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import {
   Box,
@@ -23,15 +23,22 @@ interface EquipmentFormProps {
   equipment?: EquipmentsRegistrationData;
 }
 
-const EquipmentForm: React.FC<EquipmentFormProps> = ({ open, handleClose, equipment }) => {
-  const [formData, setFormData] = useState<EquipmentsRegistrationData>({ equipmentId: "", timestamp: "", value: 0 });
+const EquipmentForm: React.FC<EquipmentFormProps> = ({
+  open,
+  handleClose,
+  equipment,
+}) => {
+  const [formData, setFormData] = useState<EquipmentsRegistrationData>({
+    equipmentId: "",
+    timestamp: "",
+    value: 0,
+  });
 
   useEffect(() => {
     if (equipment) {
       setFormData(equipment);
     }
   }, [equipment]);
-
 
   const submitEquipmentData = async (formData: EquipmentsRegistrationData) => {
     try {
@@ -64,11 +71,17 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({ open, handleClose, equipm
     setFormData(newFormData);
   };
 
+  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "" || value === "." || /^\d*\.?\d*$/.test(value)) {
+      handleChange("value", value);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     mutation.mutate(formData);
   };
-
 
   return (
     <Modal
@@ -110,18 +123,18 @@ const EquipmentForm: React.FC<EquipmentFormProps> = ({ open, handleClose, equipm
                 <TextField
                   type="datetime-local"
                   onChange={(e) => handleChange("timestamp", e.target.value)}
-                  value={formData.timestamp ? formatInputDate(formData.timestamp) : ""}
+                  value={
+                    formData.timestamp ? formatInputDate(formData.timestamp) : ""
+                  }
                   fullWidth
                 />
               </Grid>
               <Grid item xs={12} md={4}>
                 <TextField
                   label="Valor"
-                  type="number"
-                  onChange={(e) =>
-                    handleChange("value", parseInt(e.target.value, 10))
-                  }
-                  value={formData.value}
+                  type="text"
+                  onChange={handleValueChange}
+                  value={formData.value.toString()}
                   fullWidth
                 />
               </Grid>
