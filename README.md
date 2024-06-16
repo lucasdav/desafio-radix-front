@@ -28,3 +28,4 @@
 
 - Para otimizar a performance, foi implementado utilizando lazy
 
+Esteira de deploy configurada pelo vercel, publicado em https://desafio-radix-front.vercel.app/

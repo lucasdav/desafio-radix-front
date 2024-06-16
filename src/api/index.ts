@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const apiURL = 'http://localhost:8000';
+// const apiURL = 'http://localhost:8000';
+const apiURL = 'https://desafio-radix-api.vercel.app/';
 
 const api = axios.create({
   baseURL: apiURL,
